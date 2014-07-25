@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9514FD521982A2DE006376F7 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9514FD511982A2DE006376F7 /* main.c */; };
-		9514FD541982A2DE006376F7 /* yutoridoor.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9514FD531982A2DE006376F7 /* yutoridoor.1 */; };
+		9543569C1982A32900A0CECD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9543569B1982A32900A0CECD /* main.c */; };
+		954356BE1982A44600A0CECD /* cweb_http.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356B51982A44600A0CECD /* cweb_http.c */; };
+		954356BF1982A44600A0CECD /* cweb_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356B71982A44600A0CECD /* cweb_main.c */; };
+		954356C01982A44600A0CECD /* cweb_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356B91982A44600A0CECD /* cweb_object.c */; };
+		954356C11982A44600A0CECD /* cweb_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356BB1982A44600A0CECD /* cweb_render.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +21,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				9514FD541982A2DE006376F7 /* yutoridoor.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -26,8 +28,16 @@
 
 /* Begin PBXFileReference section */
 		9514FD4E1982A2DE006376F7 /* yutoridoor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = yutoridoor; sourceTree = BUILT_PRODUCTS_DIR; };
-		9514FD511982A2DE006376F7 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9514FD531982A2DE006376F7 /* yutoridoor.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = yutoridoor.1; sourceTree = "<group>"; };
+		9543569B1982A32900A0CECD /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
+		954356B51982A44600A0CECD /* cweb_http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cweb_http.c; path = cweb/cweb_http.c; sourceTree = "<group>"; };
+		954356B61982A44600A0CECD /* cweb_http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb_http.h; path = cweb/cweb_http.h; sourceTree = "<group>"; };
+		954356B71982A44600A0CECD /* cweb_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cweb_main.c; path = cweb/cweb_main.c; sourceTree = "<group>"; };
+		954356B81982A44600A0CECD /* cweb_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb_main.h; path = cweb/cweb_main.h; sourceTree = "<group>"; };
+		954356B91982A44600A0CECD /* cweb_object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cweb_object.c; path = cweb/cweb_object.c; sourceTree = "<group>"; };
+		954356BA1982A44600A0CECD /* cweb_object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb_object.h; path = cweb/cweb_object.h; sourceTree = "<group>"; };
+		954356BB1982A44600A0CECD /* cweb_render.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cweb_render.c; path = cweb/cweb_render.c; sourceTree = "<group>"; };
+		954356BC1982A44600A0CECD /* cweb_render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb_render.h; path = cweb/cweb_render.h; sourceTree = "<group>"; };
+		954356BD1982A44600A0CECD /* cweb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb.h; path = cweb/cweb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				9514FD501982A2DE006376F7 /* yutoridoor */,
+				9543569D1982A40B00A0CECD /* Libs */,
 				9514FD4F1982A2DE006376F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,10 +71,33 @@
 		9514FD501982A2DE006376F7 /* yutoridoor */ = {
 			isa = PBXGroup;
 			children = (
-				9514FD511982A2DE006376F7 /* main.c */,
-				9514FD531982A2DE006376F7 /* yutoridoor.1 */,
+				9543569B1982A32900A0CECD /* main.c */,
 			);
 			path = yutoridoor;
+			sourceTree = "<group>";
+		};
+		9543569D1982A40B00A0CECD /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				954356B41982A43100A0CECD /* cweb */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		954356B41982A43100A0CECD /* cweb */ = {
+			isa = PBXGroup;
+			children = (
+				954356B51982A44600A0CECD /* cweb_http.c */,
+				954356B61982A44600A0CECD /* cweb_http.h */,
+				954356B71982A44600A0CECD /* cweb_main.c */,
+				954356B81982A44600A0CECD /* cweb_main.h */,
+				954356B91982A44600A0CECD /* cweb_object.c */,
+				954356BA1982A44600A0CECD /* cweb_object.h */,
+				954356BB1982A44600A0CECD /* cweb_render.c */,
+				954356BC1982A44600A0CECD /* cweb_render.h */,
+				954356BD1982A44600A0CECD /* cweb.h */,
+			);
+			name = cweb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9514FD521982A2DE006376F7 /* main.c in Sources */,
+				954356BF1982A44600A0CECD /* cweb_main.c in Sources */,
+				954356C01982A44600A0CECD /* cweb_object.c in Sources */,
+				954356BE1982A44600A0CECD /* cweb_http.c in Sources */,
+				9543569C1982A32900A0CECD /* main.c in Sources */,
+				954356C11982A44600A0CECD /* cweb_render.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +265,7 @@
 				9514FD591982A2DE006376F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,3 @@
+[submodule "cweb"]
+	path = cweb
+	url = git@github.com:yuki-sato/cweb.git
