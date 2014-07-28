@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
     pinMode(GPIO_LED, OUTPUT);
 //    pinMode(GPIO_PWM, PWM_OUTPUT); //setup hardware pwm
-     softPwmCreate(GPIO_PWM, 0, 100);
+     softPwmCreate(GPIO_PWM, 0, 1024);
     
     CWebListen(9000);
     return 1;
