@@ -13,7 +13,8 @@
 
 #include <wiringPi.h>
 
-#define LED 18
+#define GPIO_LED 18
+#define GPIO_PWM 15
 
 int main(int argc, char *argv[])
 {
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     pinMode(LED, OUTPUT);
+    pinMode(GPIO_PWM, PWM_OUTPUT); //setup hardware pwm
     
     CWebListen(9000);
     return 1;
@@ -38,15 +40,29 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else if(CWebRequestMatch(request, "GET", "/led/on")){
-        digitalWrite(LED, 1);
+        digitalWrite(GPIO_LED, 1);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/led/on");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else if(CWebRequestMatch(request, "GET", "/led/off")){
-        digitalWrite(LED, 0);
+        digitalWrite(GPIO_LED, 0);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/led/off");
+        html = CWebRenderHTML("./index.html", obj);
+        CWebObjectFree(obj);
+        response = CWebResponseCreateWithHTMLBODY(&html);
+        
+    }else if(CWebRequestMatch(request, "GET", "/pwm/right")){
+        pwmWrite(GPIO_PWM, 512);
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/right");
+        html = CWebRenderHTML("./index.html", obj);
+        CWebObjectFree(obj);
+        response = CWebResponseCreateWithHTMLBODY(&html);
+        
+    }else if(CWebRequestMatch(request, "GET", "/pwm/left")){
+        pwmWrite(HARD_PWM_PIN, 10);
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/left");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
