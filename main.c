@@ -61,7 +61,7 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else if(CWebRequestMatch(request, "GET", "/pwm/left")){
-        pwmWrite(HARD_PWM_PIN, 10);
+        pwmWrite(GPIO_PWM, 10);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/left");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
