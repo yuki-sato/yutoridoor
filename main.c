@@ -28,10 +28,8 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else{
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "404 Notfound");
-        html = CWebRenderHTML("./index.html", obj);
+        html = CWebRenderHTML("./404.html", NULL);
         response = CWebResponseCreateWithHTMLBODY(&html);
-        CWebObjectFree(obj);
         response->statusCode = 404;
     }
     CWebResponse(connection, response);
