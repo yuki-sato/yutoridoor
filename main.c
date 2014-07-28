@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     }
     pinMode(GPIO_LED, OUTPUT);
 //    pinMode(GPIO_PWM, PWM_OUTPUT); //setup hardware pwm
-     softPwmCreate(GPIO_PWM, 0, 1024);
+     softPwmCreate(GPIO_PWM, 0, 170);
     
     CWebListen(9000);
     return 1;
@@ -56,7 +56,9 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         
     }else if(CWebRequestMatch(request, "GET", "/pwm/right")){
 //        pwmWrite(GPIO_PWM, 512);
-        softPwmWrite(GPIO_PWM, 10);
+        
+        // 1 is 0.1mS
+        softPwmWrite(GPIO_PWM, 23);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/right");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
@@ -64,7 +66,7 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         
     }else if(CWebRequestMatch(request, "GET", "/pwm/left")){
 //        pwmWrite(GPIO_PWM, 10);
-        softPwmWrite(GPIO_PWM, 1);
+        softPwmWrite(GPIO_PWM, 7);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/left");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
