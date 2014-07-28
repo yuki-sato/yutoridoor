@@ -12,6 +12,7 @@
 		954356BF1982A44600A0CECD /* cweb_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356B71982A44600A0CECD /* cweb_main.c */; };
 		954356C01982A44600A0CECD /* cweb_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356B91982A44600A0CECD /* cweb_object.c */; };
 		954356C11982A44600A0CECD /* cweb_render.c in Sources */ = {isa = PBXBuildFile; fileRef = 954356BB1982A44600A0CECD /* cweb_render.c */; };
+		9543575219866EDA00A0CECD /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9543575119866EDA00A0CECD /* makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 		954356BB1982A44600A0CECD /* cweb_render.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cweb_render.c; path = cweb/cweb_render.c; sourceTree = "<group>"; };
 		954356BC1982A44600A0CECD /* cweb_render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb_render.h; path = cweb/cweb_render.h; sourceTree = "<group>"; };
 		954356BD1982A44600A0CECD /* cweb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cweb.h; path = cweb/cweb.h; sourceTree = "<group>"; };
+		9543575119866EDA00A0CECD /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		9514FD501982A2DE006376F7 /* yutoridoor */ = {
 			isa = PBXGroup;
 			children = (
+				9543575119866EDA00A0CECD /* makefile */,
 				9543569B1982A32900A0CECD /* main.c */,
 			);
 			path = yutoridoor;
@@ -153,6 +156,7 @@
 			files = (
 				954356BF1982A44600A0CECD /* cweb_main.c in Sources */,
 				954356C01982A44600A0CECD /* cweb_object.c in Sources */,
+				9543575219866EDA00A0CECD /* makefile in Sources */,
 				954356BE1982A44600A0CECD /* cweb_http.c in Sources */,
 				9543569C1982A32900A0CECD /* main.c in Sources */,
 				954356C11982A44600A0CECD /* cweb_render.c in Sources */,
