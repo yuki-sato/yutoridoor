@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         printf("\nGPIO Error");
         return 1;
     }
-    pinMode(LED, OUTPUT);
+    pinMode(GPIO_LED, OUTPUT);
     pinMode(GPIO_PWM, PWM_OUTPUT); //setup hardware pwm
     
     CWebListen(9000);
