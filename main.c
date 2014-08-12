@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     pinMode(GPIO_LED, OUTPUT);
 //    pinMode(GPIO_PWM, PWM_OUTPUT); //setup hardware pwm
      softPwmCreate(GPIO_PWM, 0, 170);
+    softPwmWrite(GPIO_PWM, 17);
     
     while (1) {
         CWebListen(9000);
@@ -70,20 +71,23 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
-    }else if(CWebRequestMatch(request, "GET", "/pwm/clock")){
-//        pwmWrite(GPIO_PWM, 512);
+    }else if(CWebRequestMatch(request, "GET", "/pwm/lock")){
         
         // 15 is center
         // 1 is 0.1mS
-        softPwmWrite(GPIO_PWM, 18);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/clock");
+        softPwmWrite(GPIO_PWM, 21);
+        sleep(1);
+        softPwmWrite(GPIO_PWM, 17);
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/lock");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else if(CWebRequestMatch(request, "GET", "/pwm/unclock")){
-//        pwmWrite(GPIO_PWM, 10);
+        
         softPwmWrite(GPIO_PWM, 12);
+        sleep(1);
+        softPwmWrite(GPIO_PWM, 17);
         CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/unclock");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
