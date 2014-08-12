@@ -70,21 +70,21 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
-    }else if(CWebRequestMatch(request, "GET", "/pwm/right")){
+    }else if(CWebRequestMatch(request, "GET", "/pwm/clock")){
 //        pwmWrite(GPIO_PWM, 512);
         
         // 15 is center
         // 1 is 0.1mS
-        softPwmWrite(GPIO_PWM, 19);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/right");
+        softPwmWrite(GPIO_PWM, 18);
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/clock");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
-    }else if(CWebRequestMatch(request, "GET", "/pwm/left")){
+    }else if(CWebRequestMatch(request, "GET", "/pwm/unclock")){
 //        pwmWrite(GPIO_PWM, 10);
-        softPwmWrite(GPIO_PWM, 11);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/left");
+        softPwmWrite(GPIO_PWM, 12);
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/unclock");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
