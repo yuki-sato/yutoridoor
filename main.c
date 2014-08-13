@@ -83,12 +83,12 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
-    }else if(CWebRequestMatch(request, "GET", "/pwm/unclock")){
+    }else if(CWebRequestMatch(request, "GET", "/pwm/unlock")){
         
         softPwmWrite(GPIO_PWM, 12);
         sleep(1);
         softPwmWrite(GPIO_PWM, 17);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/unclock");
+        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/unlock");
         html = CWebRenderHTML("./index.html", obj);
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
