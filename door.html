@@ -1,25 +1,44 @@
 <html>
 <head>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript">
-	
-	$('#open').bind('touchstart', function() {
-		$.get("/pwm/unlock", function(data){
-			alert("unlocked" + data);
-		});
-	});
-	
-	$('#lock').bind('touchstart', function() {
-		$.get("/pwm/lock", function(data){
-			alert("locked" + data);
-		});
-	});
-	
-	</script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <title>yutoridoor</title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+
+        var unlock, lock;
+
+        $(function(){
+
+        unlock = function() {
+                $('#open').bind('touchstart', function() {
+                        $.get("/pwm/unlock", function(data){
+                                alert("unlocked" + data);
+                        });
+                });
+        };
+
+        lock = function() {
+                $('#lock').bind('touchstart', function() {
+                        $.get("/pwm/lock", function(data){
+                                alert("locked" + data);
+                        });
+                });
+        };
+
+        });
+
+        </script>
 </head>
 </head>
 <body>
-	<h1>Title</h1>
-	<div id="open">open</div>
-	<div id="lock">lock</div>
+	<h1>Yutoribeya door lock system</h1>
+        <div class="row">
+                <button type="button" id="open" class="btn btn-primary col-md-5" onclick="unlock()">Open</button>
+                <button type="button" id="lock" class="btn btn-danger col-md-5" onclick="lock()">Lock</button>
+         </div>
 </html>
