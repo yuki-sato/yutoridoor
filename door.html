@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+	$('#open').bind('touchstart', function() {
+		$.get("/pwm/unlock", function(data){
+			alert("unlocked" + data);
+		});
+	});
+	
+	$('#lock').bind('touchstart', function() {
+		$.get("/pwm/lock", function(data){
+			alert("locked" + data);
+		});
+	});
+	
+	</script>
+</head>
+</head>
+<body>
+	<h1>Title</h1>
+	<div id="open">open</div>
+	<div id="lock">lock</div>
+</html>

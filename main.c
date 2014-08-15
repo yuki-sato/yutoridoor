@@ -60,6 +60,11 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         CWebObjectFree(obj);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
+    }else if(CWebRequestMatch(request, "GET", "/door")){
+        digitalWrite(GPIO_LED, 0);
+        html = CWebRenderHTML("./door.html", NULL);
+        response = CWebResponseCreateWithHTMLBODY(&html);
+        
     }else if(CWebRequestMatch(request, "GET", "/pwm/center")){
         //        pwmWrite(GPIO_PWM, 512);
         
