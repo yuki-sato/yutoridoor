@@ -73,7 +73,7 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         softPwmWrite(GPIO_PWM, 21);
         sleep(1);
         softPwmWrite(GPIO_PWM, 17);
-        const char *text = "opened";
+        const char *text = "locked";
         html = (char *)malloc(sizeof(char) * 7);
         strcpy(html, text);
         response = CWebResponseCreateWithHTMLBODY(&html);
@@ -83,7 +83,7 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         softPwmWrite(GPIO_PWM, 12);
         sleep(1);
         softPwmWrite(GPIO_PWM, 17);
-        const char *text = "locked";
+        const char *text = "opened";
         html = (char *)malloc(sizeof(char) * 7);
         strcpy(html, text);
         response = CWebResponseCreateWithHTMLBODY(&html);
