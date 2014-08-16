@@ -11,6 +11,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #include <wiringPi.h>
 
@@ -65,17 +66,6 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         html = CWebRenderHTML("./door.html", NULL);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
-    }else if(CWebRequestMatch(request, "GET", "/pwm/center")){
-        //        pwmWrite(GPIO_PWM, 512);
-        
-        // 15 is center
-        // 1 is 0.1mS
-        softPwmWrite(GPIO_PWM, 15);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/center");
-        html = CWebRenderHTML("./index.html", obj);
-        CWebObjectFree(obj);
-        response = CWebResponseCreateWithHTMLBODY(&html);
-        
     }else if(CWebRequestMatch(request, "GET", "/pwm/lock")){
         
         // 15 is center
@@ -83,9 +73,9 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         softPwmWrite(GPIO_PWM, 21);
         sleep(1);
         softPwmWrite(GPIO_PWM, 17);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/lock");
-        html = CWebRenderHTML("./index.html", obj);
-        CWebObjectFree(obj);
+        const char *text = "opened";
+        html = (char *)malloc(sizeof(char) * 7);
+        strcpy(html, text);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else if(CWebRequestMatch(request, "GET", "/pwm/unlock")){
@@ -93,9 +83,9 @@ void didReceiveCWebRequest(CWebTCPConnection *connection, CWebHTTPRequest *reque
         softPwmWrite(GPIO_PWM, 12);
         sleep(1);
         softPwmWrite(GPIO_PWM, 17);
-        CWebObject *obj = CWebObjectCreateDictionaryStringValueWithCopy("title", "/pwm/unlock");
-        html = CWebRenderHTML("./index.html", obj);
-        CWebObjectFree(obj);
+        const char *text = "locked";
+        html = (char *)malloc(sizeof(char) * 7);
+        strcpy(html, text);
         response = CWebResponseCreateWithHTMLBODY(&html);
         
     }else {
