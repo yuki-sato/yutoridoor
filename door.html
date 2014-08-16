@@ -17,16 +17,24 @@
 
       unlock = function() {
           $('#open').bind('touchstart', function() {
-              $.get("/pwm/unlock", function(data){
-                  alert("unlocked" + data);
+              $.get("/pwm/unlock", function(data, status){
+                  if(status==200){
+                    alert("opened (^0^");
+                  }else{
+                    alert("fail (^0^");
+                  }
               });
           });
       };
 
       lock = function() {
           $('#lock').bind('touchstart', function() {
-              $.get("/pwm/lock", function(data){
-                  alert("locked" + data);
+              $.get("/pwm/lock", function(data, status){
+                  if(status==200){
+                    alert("locked (^0^");
+                  }else{
+                    alert("fail (^0^");
+                  }
               });
           });
       };
